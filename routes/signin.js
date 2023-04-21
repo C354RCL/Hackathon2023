@@ -1,13 +1,19 @@
 const express = require('express');
-const user = express.Router();
+const signin = express.Router();
 const db = require('../config/database');
 
-user.post('/signin', async (req, res, next) => {
-    res.render('./static/signin.html');
+signin.post('/', async (req, res, next) => {
+    
+    // res.sendFile('./static/sigin.html');
 
     const {user_name, user_age, user_mail, user_password} = req.body;
 
     if(user_name && user_age, user_mail, user_password) {
+
+        if(user_age < 18){
+            return res.status(500).json({code : 201, message : 'Necesitas ser mayor de edad para registrate'});
+        }
+        
         let query = `INSERT INTO usuarios (nombre, edad, correo, contraseña) VALUES ('${user_name}', '${user_age}', '${user_mail}', '${user_password}')`;
         const rows = await db.query(query);
 
@@ -19,8 +25,5 @@ user.post('/signin', async (req, res, next) => {
     }
 });
 
-// user.post('/login', async (req, res, next) => {
-//     const {user_mail, user_password}
-// });
 
-module.exports = user;
+module.exports = signin;

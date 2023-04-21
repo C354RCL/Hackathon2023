@@ -4,9 +4,11 @@ const express = require('express');
 const app = express();
 
 //rutas
-const user = require('./routes/user.js')
+const signin = require('./routes/signin')
+const login = require('./routes/login');
 
 //middleware 
+const auth = require('./middleware/auth.js');
 const notFound = require('./middleware/notFound.js');
 const index = require('./middleware/index.js');
 const cors = require('./middleware/cors.js');
@@ -18,10 +20,11 @@ app.use(express.urlencoded({extended : true}));
 
 app.get('/', index);
 
-app.use("/user", user);
-// app.use(auth);
+app.use("/signin", signin);
+app.use("/login", login);
+app.use(auth);
 app.use(notFound);
 
-app.listen(process.env.PORT || 1000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('Server is runing...');
 });
