@@ -1,0 +1,28 @@
+{
+  "name": "hackathon2023",
+  "version": "1.0.0",
+  "description": "Proyecto de hackathon 2023",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/C354RCL/Hackathon2023.git"
+  },
+  "keywords": [
+    "API",
+    "REST"
+  ],
+  "author": "WiFiers\u001b[D\u001b[D\u001b[D\u001b[f",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/C354RCL/Hackathon2023/issues"
+  },
+  "homepage": "https://github.com/C354RCL/Hackathon2023#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  }
+}
