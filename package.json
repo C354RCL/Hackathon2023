@@ -23,6 +23,10 @@
   "homepage": "https://github.com/C354RCL/Hackathon2023#readme",
   "dependencies": {
     "express": "^4.18.2",
+    "json-web-token": "^3.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
     "nodemon": "^2.0.22"
   }
 }
