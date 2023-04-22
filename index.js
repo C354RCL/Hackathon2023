@@ -21,9 +21,9 @@ app.get('/', index);
 
 app.use("/signin", signin);
 app.use("/login", login);
+app.use(express.static('public'));
 app.use(notFound);
 
-app.use(express.static('public'));
 
 app.listen(process.env.PORT || 3000, () => {
     console.log('Server is runing in port 3000...');
