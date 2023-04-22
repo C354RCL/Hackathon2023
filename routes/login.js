@@ -1,6 +1,7 @@
 const express = require('express');
 const login = express.Router();
 const db = require ('../config/database');
+const path = require('path');
 
 login.post('/', async(req, res, next) => {
     const {email, password} = req.body;
@@ -18,5 +19,10 @@ login.post('/', async(req, res, next) => {
     }
     return res.status(500).json({code : 500, message : 'Campo incompletos'});
 });
+
+login.get('/', (req, res) => {
+    const rutaCompleta = path.join(__dirname, '../public/login.html');
+    res.sendFile(rutaCompleta);
+  });
 
 module.exports = login;

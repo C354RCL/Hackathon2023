@@ -1,6 +1,7 @@
 const express = require('express');
 const signin = express.Router();
 const db = require('../config/database');
+const path = require('path');
 
 signin.post('/', async (req, res, next) => {
     
@@ -23,11 +24,10 @@ signin.post('/', async (req, res, next) => {
     }
 });
 
-signin.post('/all', async(req, res, next) => {
-    const query = "SELECT * FROM usuario"
-    const rows = await db.query(query);
+signin.get('/', (req, res) => {
+    const rutaCompleta = path.join(__dirname, '../public/signin.html');
+    res.sendFile(rutaCompleta);
+  });
 
-    res.status(200).json({code : 200, message : rows});
-});
 
 module.exports = signin;
